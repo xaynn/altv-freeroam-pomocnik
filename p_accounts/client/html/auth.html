@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/ico" href="./public/img/favicon.ico">
+        <title>Pomocnik - Logowanie</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" href="./public/css/clientAuth.css">
+    </head>
+    <body>
+        <div class="clientAuth-container">
+            <span style="position: absolute; top: -3vw; left: 4.5vw; font-family: 'KaushanScript'; font-size: 4vw; color: rgb(129, 48, 48); text-shadow: 2px 2px #fcd619;">Pomocnik</span>
+            <input class="clientAuth-input-name" id="account_name" type="text" placeholder="Login">
+            <input class="clientAuth-input-password" id="account_password" type="password" placeholder="Haslo">
+            <button class="clientAuth-btn-login" onclick="sendLoginData();">Zaloguj</button>
+            <button class="clientAuth-btn-register" onclick="sendRegisterData();">Zarejestruj</button>
+        </div>
+        <script>
+            function sendLoginData() {
+                let account_name = document.getElementById("account_name").value;
+                let account_password = document.getElementById("account_password").value;
+                alt.emit("client:auth:login:send:data", account_name, account_password);
+            }
+
+            function sendRegisterData() {
+                let account_name = document.getElementById("account_name").value;
+                let account_password = document.getElementById("account_password").value;
+                alt.emit("client:auth:register:send:data", account_name, account_password);
+            }
+        </script>
+    </body>
+</html>
